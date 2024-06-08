@@ -11,10 +11,10 @@ driver.get("http://the-internet.herokuapp.com/add_remove_elements/")
 
 #кликнуть на кнопку "Add element" 5 раз
 add_button = "button"
-пять_button = driver.find_element(By.CSS_SELECTOR, add_button)
+five_button = driver.find_element(By.CSS_SELECTOR, add_button)
 
 for n in range(5):
-       пять_button.click()
+       five_button.click()
 sleep(1)
 sleep(5)
 
@@ -26,17 +26,29 @@ sleep(5)
 driver.quit()
 
 ## открыть страницу в FireFox
-# from selenium import webdriver
-# from webdriver_manager.firefox import GeckoDriverManager().install())
-# driver = webdriver.Firefox(executable_path = GeckoDriverManager().install())
+from time import sleep
+from selenium import webdriver
+from selenium.webdriver.firefox.service import Service as FirefoxService
+from webdriver_manager.firefox import GeckoDriverManager
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+driver = webdriver.Firefox(service=FirefoxService(
+GeckoDriverManager().install()))
 #открыть сайт
 driver.get("http://the-internet.herokuapp.com/add_remove_elements/")
 
 #кликнуть на кнопку "Add element" 5 раз
 add_button = "button"
-пять_button = driver.find_element(By.CSS_SELECTOR, add_button)
+five_button = driver.find_element(By.CSS_SELECTOR, add_button)
 
 for n in range(5):
-       пять_button.click()
+       five_button.click()
 sleep(1)
-sleep(5) 	
+sleep(5)
+
+#вывести в консоль размер списка
+delete_button = driver.find_elements(By.CSS_SELECTOR, ".added-manually" )
+print(len(delete_button))
+sleep(5)
+	
+driver.quit()
