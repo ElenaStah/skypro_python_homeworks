@@ -20,13 +20,13 @@ def test_get_company_employee_list():
 	company_id = new_company_id
 	email = "stahelenasr@gmail.com"
 	url = " "
-	phone = 89530958920
-	birthdate = " "
+	phone = "89530958920"
+	birthdate = "1977-09-20"
 	isActive: True
 	result = api.add_new_employee(old_id, firstName, lastName, middleName, company_id, email, url, phone, birthdate, True)
-	new_employee_id = result.get("id")
-	assert result.get("id") == new_employee_id
-	assert result.get
+	#new_employee_id = result.get ("id")
+	list_after = api.get_employee_list(company_id)
+	assert id_employee == list_after[0]['id']
 
 #Получить список сотрудников компании
 	id = new_company_id
